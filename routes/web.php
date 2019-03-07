@@ -11,6 +11,8 @@
 |
 */
 
+use App\Models\Article;
+
 Route::get('/', function () {
-    return view('welcome');
+	return Article::all();
 });
