@@ -7,8 +7,15 @@ use App\Http\Repositories\ArticleRepository;
 
 class ArticleController extends Controller
 {
+	/**
+	 * [$articleRepository description]
+	 * @var [type]
+	 */
 	public $articleRepository;
 
+	/**
+	 * 
+	 */
 	public function __construct
 	(
 		ArticleRepository $articleRepository
@@ -17,8 +24,22 @@ class ArticleController extends Controller
 		$this->articleRepository = $articleRepository;
 	}
 
+	/**
+	 * [index description]
+	 * @return [type] [description]
+	 */
 	public function index()
 	{
-		return 
+		return $this->articleRepository->getAll();
 	}
+
+	public function create(Request $request)
+	{
+
+		// mock data
+		$request['post'] = "fjvdfvjdfvdfvdf";
+
+		return $request->all();
+	}
+
 }

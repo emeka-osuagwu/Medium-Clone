@@ -11,9 +11,5 @@
 |
 */
 
-use App\Models\Tag;
-use App\Models\Article;
-
-Route::get('/', function () {
-	return Tag::all();
-});
+Route::get('/', 'ArticleController@index');
+Route::get('article/create', 'ArticleController@create');
