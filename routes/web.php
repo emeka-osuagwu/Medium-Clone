@@ -13,3 +13,4 @@
 
 Route::get('/', 'ArticleController@index');
 Route::get('article/create', 'ArticleController@create');
+Route::get('article/update', 'ArticleController@update');

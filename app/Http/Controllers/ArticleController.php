@@ -50,11 +50,9 @@ class ArticleController extends Controller
 		$request['user_id'] = 1;
 		$request['description'] = "fjvdfvjdfvdfvdf" . rand(100, 1000000);
 
-
 		$validator = $this->articleValidator->createArticleValidation($request->all());
 
 		if ($validator->fails()) {
-			// return back()->withErrors($validator->errors());
 			return $validator->errors();
 		}
 
@@ -68,7 +66,13 @@ class ArticleController extends Controller
 	 */
 	public function update(Request $request)
 	{
-		# code...
+		$validator = $this->articleValidator->updateArticleValidation($request->all());
+
+		if ($validator->fails()) {
+			return $validator->errors();
+		}
+
+		return $this->articleRepository->updateArticle($request->all());
 	}
 
 }

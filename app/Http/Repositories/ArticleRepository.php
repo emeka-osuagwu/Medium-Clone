@@ -24,4 +24,14 @@ class ArticleRepository
 	{
 		return Article::create($data);
 	}
+
+	/**
+	 * [updateArticle description]
+	 * @param  [type] $data [description]
+	 * @return [type]       [description]
+	 */
+	public function updateArticle(Array $data)
+	{
+		return $data;
+	}
 }

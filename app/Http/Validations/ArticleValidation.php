@@ -18,4 +18,14 @@ class ArticleValidator
 		return $validator;
 	}
 
+	public function updateArticleValidation($data)
+	{	
+		$validator = Validator::make($data, [
+			'post' 			=> 'required_if:section,post|string',
+			'title' 		=> 'required_if:section,title|string',
+			'description' 	=> 'required_if:section,description|string',
+		]);
+
+		return $validator;
+	}
 }
