@@ -11,8 +11,9 @@
 |
 */
 
+use App\Models\Tag;
 use App\Models\Article;
 
 Route::get('/', function () {
-	return Article::all();
+	return Tag::all();
 });

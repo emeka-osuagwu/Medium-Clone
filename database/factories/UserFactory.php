@@ -1,9 +1,11 @@
 <?php
 
-use App\Models\User;
-use App\Models\Article;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
+
+use App\Models\Tag;
+use App\Models\User;
+use App\Models\Article;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,14 @@ $factory->define(Article::class, function (Faker $faker) {
         'post' => $faker->name,
         'title' => $faker->name,
         'user_id' => rand(1, 100),
+        'description' => $faker->name,
+    ];
+});
+
+$factory->define(Tag::class, function (Faker $faker) {
+    return [
+        'title' => $faker->name,
+        'cover_image' => $faker->name,
         'description' => $faker->name,
     ];
 });
