@@ -39,7 +39,7 @@ class ArticleController extends Controller
 	 */
 	public function index()
 	{
-		return $this->articleRepository->getAll();
+		return view('welcome');
 	}
 
 	public function create(Request $request)

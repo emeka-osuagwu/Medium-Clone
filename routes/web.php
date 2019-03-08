@@ -12,5 +12,9 @@
 */
 
 Route::get('/', 'ArticleController@index');
-Route::get('article/create', 'ArticleController@create');
-Route::get('article/update', 'ArticleController@update');
+
+
+Route::group(['prefix' => 'article'], function () {
+	Route::get('create', 'ArticleController@create');
+	Route::get('update', 'ArticleController@update');
+});
