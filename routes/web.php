@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', 'ArticleController@index');
-
-
-Route::group(['prefix' => 'article'], function () {
-	Route::get('create', 'ArticleController@create');
-	Route::get('update', 'ArticleController@update');
+Route::get('/', function () {
+    return view('welcome');
 });

@@ -21,8 +21,10 @@ class ArticleValidator
 	public function updateArticleValidation($data)
 	{	
 		$validator = Validator::make($data, [
+			'id' 			=> 'required|exists:articles|integer',
 			'post' 			=> 'required_if:section,post|string',
 			'title' 		=> 'required_if:section,title|string',
+			'user_id' 		=> 'required|exists:users|integer',
 			'description' 	=> 'required_if:section,description|string',
 		]);
 

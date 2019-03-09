@@ -39,17 +39,11 @@ class ArticleController extends Controller
 	 */
 	public function index()
 	{
-		return view('welcome');
+		return $this->articleRepository->getAll();
 	}
 
 	public function create(Request $request)
 	{
-		// mock data
-		$request['post'] = "fjvdfvjdfvdfvdf" . rand(100, 1000000);
-		$request['title'] = "fjvdfvjdfvdfvdf" . rand(100, 1000000);
-		$request['user_id'] = 1;
-		$request['description'] = "fjvdfvjdfvdfvdf" . rand(100, 1000000);
-
 		$validator = $this->articleValidator->createArticleValidation($request->all());
 
 		if ($validator->fails()) {
@@ -66,6 +60,8 @@ class ArticleController extends Controller
 	 */
 	public function update(Request $request)
 	{
+		$request['id'] = $request->id;
+
 		$validator = $this->articleValidator->updateArticleValidation($request->all());
 
 		if ($validator->fails()) {
