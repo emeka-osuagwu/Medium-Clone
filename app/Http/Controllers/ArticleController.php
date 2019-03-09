@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\ArticleResource;
 use App\Http\Validations\ArticleValidator;
 use App\Http\Repositories\ArticleRepository;
 
@@ -34,12 +35,16 @@ class ArticleController extends Controller
 	}
 
 	/**
-	 * [index description]
-	 * @return [type] [description]
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{
-		return $this->articleRepository->getAll();
+		$articles = $this->articleRepository->getAll();
+
+
+	    return ArticleResource::collection($articles);
 	}
 
 	public function create(Request $request)

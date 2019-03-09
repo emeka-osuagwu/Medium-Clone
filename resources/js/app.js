@@ -29,5 +29,10 @@ Vue.component('app-init', require('./components/Init.vue').default);
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+        baseUrl: "http://localhost:8000",
+        topic_title: "vkjdfj"
+    }
 });

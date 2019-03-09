@@ -12,7 +12,7 @@ class ArticleRepository
 	 */
 	public function getAll()
 	{
-		return Article::all();
+		return Article::with('tags')->paginate(10);
 	}
 
 	/**

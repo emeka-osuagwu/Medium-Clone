@@ -14,7 +14,9 @@ class Article extends Model
 	protected $fillable = [
 	    'post',
 	    'title', 
-	    'user_id',
+	    'author',
+	    'image',
+	    'tags',
 	    'description',
 	];
 
@@ -32,5 +34,11 @@ class Article extends Model
 	 * @var array
 	 */
 	protected $casts = [
+		'tags' => 'json'
 	];
+
+	public function tags()
+	{
+	    return $this->belongsToMany('App\Models\Tag');
+	}
 }

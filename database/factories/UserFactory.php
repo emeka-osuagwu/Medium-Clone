@@ -6,6 +6,7 @@ use Faker\Generator as Faker;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Article;
+use App\Models\ArticleTag;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,8 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'oauth' => $faker->md5,
+        'image' => $faker->imageUrl($width = 640, $height = 480),
     ];
 });
 
@@ -32,7 +32,9 @@ $factory->define(Article::class, function (Faker $faker) {
     return [
         'post' => $faker->name,
         'title' => $faker->name,
-        'user_id' => rand(1, 100),
+        'image' => $faker->imageUrl($width = 640, $height = 480),
+        'author' => rand(1, 100),
+        'tags' => 1,
         'description' => $faker->name,
     ];
 });
@@ -42,5 +44,12 @@ $factory->define(Tag::class, function (Faker $faker) {
         'title' => $faker->name,
         'cover_image' => $faker->name,
         'description' => $faker->name,
+    ];
+});
+
+$factory->define(ArticleTag::class, function (Faker $faker) {
+    return [
+        'article_id' => rand(1, 100),
+        'tag_id' => rand(1, 100),
     ];
 });

@@ -36829,32 +36829,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
+  return _c("div", { staticClass: "border-b border-2-border-grey main-menu" }, [
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "nav",
+        {
+          staticClass: "px-4 md:px-0 flex items-center justify-between mx-auto"
+        },
+        [
+          _c("ul", { staticClass: "list-reset flex items-center" }, [
+            _c("li", { staticClass: "mr-5 py-1 pr-5 border-r font-bold" }, [
+              _c("a", {
+                staticClass: "text-black no-underline",
+                attrs: { href: _vm.baseUrl }
+              })
             ])
           ])
-        ])
-      ])
+        ]
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -48998,7 +48994,11 @@ Vue.component('app-init', __webpack_require__(/*! ./components/Init.vue */ "./re
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    baseUrl: "http://localhost:8000",
+    topic_title: "vkjdfj"
+  }
 });
 
 /***/ }),
@@ -49130,10 +49130,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
+/***/ "./resources/sass/index.sass":
+/*!***********************************!*\
+  !*** ./resources/sass/index.sass ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -49142,14 +49142,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!***************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/index.sass ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/emekaosuagwu/Desktop/blog/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/emekaosuagwu/Desktop/blog/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/emekaosuagwu/Desktop/blog/resources/sass/index.sass */"./resources/sass/index.sass");
 
 
 /***/ })
