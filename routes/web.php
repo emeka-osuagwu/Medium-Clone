@@ -11,9 +11,10 @@
 |
 */
 
-use App\Models\Tag;
-use App\Models\Article;
+Route::get('/', 'ArticleController@index');
 
-Route::get('/', function () {
-	return Tag::all();
+
+Route::group(['prefix' => 'article'], function () {
+	Route::get('create', 'ArticleController@create');
+	Route::get('update', 'ArticleController@update');
 });
