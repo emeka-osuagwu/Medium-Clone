@@ -19,7 +19,6 @@ class CreateArticleTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->longText('image')->nullable();
-            $table->json('tags')->nullable();
             $table->longText('post');
             $table->timestamps();
         });

@@ -1,18 +1,16 @@
 <template>
-    <div class="border-b border-2-border-grey main-menu">
-        <div class="container">
-            <nav class="px-4 md:px-0 flex items-center justify-between mx-auto">
-                <ul class="list-reset flex items-center">
-                    <li class="mr-5 py-1 pr-5 border-r font-bold">
-                        <a :href="baseUrl" class="text-black no-underline">
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+    <div>
+        <app-navbar-component></app-navbar-component>
+        <div class="container main_body">
+            <div class="row col-10">
+                <app-articles-component></app-articles-component>
+                <div class="col">
+                    2 of 2
+                </div>
+            </div>
         </div>
     </div>
 </template>
-
 
 <script>
     export default {

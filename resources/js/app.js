@@ -1,4 +1,15 @@
 
+import Vue from "vue";
+import store from './store';
+import Logger from './helper/Logger';
+import VueResource from 'vue-resource';
+import { mapState } from "vuex"
+import { socketUrl } from './helper/Urls'
+
+
+Vue.use(VueResource)
+Vue.use(Logger, {loggin: true})
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -8,6 +19,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,6 +33,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('app-init', require('./components/Init.vue').default);
+Vue.component('app-navbar-component', require('./components/NavBarComponent.vue').default);
+Vue.component('app-articles-component', require('./components/ArticlesComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,9 +44,16 @@ Vue.component('app-init', require('./components/Init.vue').default);
 
 const app = new Vue({
     el: '#app',
+    store,
+    created(){
+        this.$store.dispatch('getArticles')
+    },
+    computed: {
+        ...mapState({
+            articleStore: state => state.articleStore
+        })
+    },
+    methods: {
 
-    data: {
-        baseUrl: "http://localhost:8000",
-        topic_title: "vkjdfj"
     }
 });

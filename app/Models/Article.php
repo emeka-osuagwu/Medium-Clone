@@ -16,7 +16,6 @@ class Article extends Model
 	    'title', 
 	    'author',
 	    'image',
-	    'tags',
 	    'description',
 	];
 
@@ -34,7 +33,6 @@ class Article extends Model
 	 * @var array
 	 */
 	protected $casts = [
-		'tags' => 'json'
 	];
 
 	public function tags()

@@ -42,8 +42,6 @@ class ArticleController extends Controller
 	public function index()
 	{
 		$articles = $this->articleRepository->getAll();
-
-
 	    return ArticleResource::collection($articles);
 	}
 
