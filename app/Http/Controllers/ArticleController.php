@@ -3,12 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\ArticleResource;
 use App\Http\Validations\ArticleValidator;
+
+use App\Http\Repositories\TagRepository;
 use App\Http\Repositories\ArticleRepository;
+
+use App\Http\Resources\ArticleResource;
 
 class ArticleController extends Controller
 {
+	/**
+	 * [$tagRepository description]
+	 * @var [type]
+	 */
+	public $tagRepository;
+	
 	/**
 	 * [$articleRepository description]
 	 * @var [type]
@@ -26,12 +35,14 @@ class ArticleController extends Controller
 	 */
 	public function __construct
 	(
+		TagRepository $tagRepository,
 		ArticleValidator $articleValidator,
 		ArticleRepository $articleRepository
 	)
 	{
-		$this->articleValidator = $articleValidator;
-		$this->articleRepository = $articleRepository;
+		$this->tagRepository 		= $tagRepository;
+		$this->articleValidator 	= $articleValidator;
+		$this->articleRepository 	= $articleRepository;
 	}
 
 	/**
@@ -41,8 +52,15 @@ class ArticleController extends Controller
 	 */
 	public function index()
 	{
-		$articles = $this->articleRepository->getAll();
-	    return ArticleResource::collection($articles);
+		$tags 		= $this->tagRepository->getAll();
+		$articles 	= $this->articleRepository->getAll();
+	    
+	    $data = [
+	    	"tags" 		=> $tags,
+	    	"articles" 	=> $articles
+	    ];
+
+	    return $this->payload($data, 200);
 	}
 
 	public function create(Request $request)

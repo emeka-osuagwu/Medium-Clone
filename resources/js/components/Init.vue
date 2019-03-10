@@ -4,9 +4,7 @@
         <div class="container main_body">
             <div class="row col-10">
                 <app-articles-component></app-articles-component>
-                <div class="col">
-                    Tags
-                </div>
+                <app-tags-component></app-tags-component>
             </div>
         </div>
     </div>

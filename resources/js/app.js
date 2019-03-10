@@ -35,6 +35,7 @@ window.Vue = require('vue');
 Vue.component('app-init', require('./components/Init.vue').default);
 Vue.component('app-navbar-component', require('./components/NavBarComponent.vue').default);
 Vue.component('app-articles-component', require('./components/ArticlesComponent.vue').default);
+Vue.component('app-tags-component', require('./components/TagsComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

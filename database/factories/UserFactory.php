@@ -34,7 +34,7 @@ $factory->define(Article::class, function (Faker $faker) {
         'title' => $faker->name,
         'image' => $faker->imageUrl($width = 640, $height = 480),
         'author' => rand(1, 100),
-        'description' => $faker->name,
+        'description' => $faker->text($maxNbChars = 150),
     ];
 });
 
