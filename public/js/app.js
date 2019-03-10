@@ -1788,6 +1788,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -36903,24 +36906,55 @@ var render = function() {
     _vm._l(_vm.articleStore.articles, function(article) {
       return _c("div", { staticClass: "card mb-12" }, [
         _c("div", { staticClass: "row no-gutters" }, [
-          _vm._m(0, true),
+          _c("div", { staticClass: "col-md-4" }, [
+            _c(
+              "a",
+              { staticClass: "no-underline text-black", attrs: { href: "/" } },
+              [
+                _c("img", {
+                  staticClass: "card-img",
+                  staticStyle: { "min-height": "159px" },
+                  attrs: {
+                    src: article.image,
+                    alt: "https://cdn.urldecoder.org/assets/images/url_fb.png"
+                  }
+                })
+              ]
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-8" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(article.title))
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(article.description))
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [
-                _c("small", { staticClass: "text-muted" }, [
-                  _vm._v(_vm._s(article.created_at))
-                ])
-              ])
-            ])
+            _c(
+              "div",
+              { staticClass: "card-body" },
+              [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(article.title))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(article.description))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("small", { staticClass: "text-muted" }, [
+                    _vm._v(_vm._s(article.created_at))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._l(article.tags, function(tag) {
+                  return _c(
+                    "a",
+                    {
+                      staticClass: "tag-item badge badge-primary",
+                      attrs: { href: "#" }
+                    },
+                    [_vm._v("Primary")]
+                  )
+                })
+              ],
+              2
+            )
           ])
         ])
       ])
@@ -36928,23 +36962,7 @@ var render = function() {
     0
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("img", {
-        staticClass: "card-img",
-        staticStyle: { "min-height": "159px" },
-        attrs: {
-          src: "https://cdn.urldecoder.org/assets/images/url_fb.png",
-          alt: "https://cdn.urldecoder.org/assets/images/url_fb.png"
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -36979,7 +36997,7 @@ var render = function() {
             _c("app-articles-component"),
             _vm._v(" "),
             _c("div", { staticClass: "col" }, [
-              _vm._v("\n                2 of 2\n            ")
+              _vm._v("\n                Tags\n            ")
             ])
           ],
           1

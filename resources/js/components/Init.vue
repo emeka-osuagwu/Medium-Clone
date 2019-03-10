@@ -5,7 +5,7 @@
             <div class="row col-10">
                 <app-articles-component></app-articles-component>
                 <div class="col">
-                    2 of 2
+                    Tags
                 </div>
             </div>
         </div>

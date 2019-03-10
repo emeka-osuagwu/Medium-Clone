@@ -10667,3 +10667,7 @@ a.text-dark:focus {
 .main_body .article-container .card {
   margin-bottom: 20px;
 }
+
+.main_body .article-container .card .tag-item {
+  margin-right: 5px;
+}

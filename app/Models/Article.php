@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -35,8 +36,15 @@ class Article extends Model
 	protected $casts = [
 	];
 
+	public function getCreatedAtAttribute($value)
+	{
+	    return Carbon::parse($value)->diffForHumans();
+	}
+
 	public function tags()
 	{
 	    return $this->belongsToMany('App\Models\Tag');
 	}
+
+
 }
