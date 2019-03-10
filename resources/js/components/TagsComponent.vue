@@ -18,6 +18,5 @@
                 articleStore: state => state.articleStore
             })
         }
-
     }
 </script>

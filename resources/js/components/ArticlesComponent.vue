@@ -3,9 +3,9 @@
 		<div class="card mb-12" v-for="article in articleStore.articles">
 			<div class="row no-gutters">
 				<div class="col-md-4 emeka">
-					<a :href="'/'" class="no-underline text-black">
+					<router-link to="/article" class="no-underline text-black">
 					<img style="height: 100%;" v-bind:src="article.image" class="card-img" alt="https://cdn.urldecoder.org/assets/images/url_fb.png">
-					</a>
+					</router-link>
 				</div>
 		
 				<div class="col-md-8">

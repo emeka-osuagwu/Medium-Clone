@@ -5,7 +5,7 @@ import Logger from './helper/Logger';
 import VueResource from 'vue-resource';
 import { mapState } from "vuex"
 import { socketUrl } from './helper/Urls'
-
+import router from './route'
 
 Vue.use(VueResource)
 Vue.use(Logger, {loggin: true})
@@ -20,31 +20,14 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
-Vue.component('app-init', require('./components/Init.vue').default);
+Vue.component('app-init', require('./components/App.vue').default);
 Vue.component('app-navbar-component', require('./components/NavBarComponent.vue').default);
 Vue.component('app-articles-component', require('./components/ArticlesComponent.vue').default);
 Vue.component('app-tags-component', require('./components/TagsComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 const app = new Vue({
     el: '#app',
+    router,
     store,
     created(){
         this.$store.dispatch('getArticles')
