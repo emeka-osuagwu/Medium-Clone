@@ -12,7 +12,6 @@
    </head>
    <body>
          <div id="app">
-            <app-init></app-init>
          </div>
          <script src="{{mix('js/app.js')}}"></script>
    </body>

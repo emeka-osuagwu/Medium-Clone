@@ -4,8 +4,8 @@ import store from './store';
 import Logger from './helper/Logger';
 import VueResource from 'vue-resource';
 import { mapState } from "vuex"
-import { socketUrl } from './helper/Urls'
 import router from './route'
+import App from './components/App.vue'
 
 Vue.use(VueResource)
 Vue.use(Logger, {loggin: true})
@@ -20,7 +20,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.component('app-init', require('./components/App.vue').default);
 Vue.component('app-navbar-component', require('./components/NavBarComponent.vue').default);
 Vue.component('app-articles-component', require('./components/ArticlesComponent.vue').default);
 Vue.component('app-tags-component', require('./components/TagsComponent.vue').default);
@@ -29,6 +28,8 @@ const app = new Vue({
     el: '#app',
     router,
     store,
+    components: { App },
+    template: '<App/>',
     created(){
         this.$store.dispatch('getArticles')
     },
@@ -37,7 +38,4 @@ const app = new Vue({
             articleStore: state => state.articleStore
         })
     },
-    methods: {
-
-    }
 });
