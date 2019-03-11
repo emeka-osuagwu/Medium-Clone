@@ -24,5 +24,15 @@ export default new Router({
 			name: 'view_article',
 			component: ViewArticleComponent
 		},
+		{
+			path: '/admin',
+			name: 'admin',
+			component: ViewArticleComponent
+		},
+		{
+			path: '/admin/login',
+			name: 'admin_login',
+			component: ViewArticleComponent
+		},
 	]
 })
