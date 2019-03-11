@@ -11,7 +11,7 @@ export default new Router({
 	routes: [
 		{
 			path: '*',
-			name: 'init',
+			name: 'wildcard',
 			component: Init
 		},
 		{
@@ -20,8 +20,8 @@ export default new Router({
 			component: Init
 		},
 		{
-			path: '/article',
-			name: 'article',
+			path: '/article/:id',
+			name: 'view_article',
 			component: ViewArticleComponent
 		},
 	]

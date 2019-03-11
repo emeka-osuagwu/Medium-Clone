@@ -1,3 +1,6 @@
 <template>
-	<router-view/>
+	<div>
+		<app-navbar-component></app-navbar-component>
+		<router-view/>
+	</div>
 </template>

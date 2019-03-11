@@ -30,7 +30,7 @@ $factory->define(User::class, function (Faker $faker) {
 
 $factory->define(Article::class, function (Faker $faker) {
     return [
-        'post' => $faker->name,
+        'post' => $faker->text($maxNbChars = 550),
         'title' => $faker->name,
         'image' => $faker->imageUrl($width = 640, $height = 480),
         'author' => rand(1, 100),
