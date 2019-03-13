@@ -23,4 +23,5 @@ Route::group(['prefix' => 'article'], function () {
 	Route::get('/', 'ArticleController@index');
 	Route::post('create', 'ArticleController@create');
 	Route::post('{id}/update', 'ArticleController@update');
+	Route::post('{id}/delete', 'ArticleController@delete');
 });

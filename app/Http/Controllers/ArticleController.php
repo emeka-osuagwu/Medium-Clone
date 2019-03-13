@@ -68,10 +68,12 @@ class ArticleController extends Controller
 		$validator = $this->articleValidator->createArticleValidation($request->all());
 
 		if ($validator->fails()) {
-			return $validator->errors();
+			return $this->payload($validator->errors(), 400);
 		}
 
-		return $this->articleRepository->createArticle($request->all());
+		$article = $this->articleRepository->createArticle($request->all());
+
+		return $this->payload($article, 200);
 	}
 
 	/**
@@ -89,7 +91,24 @@ class ArticleController extends Controller
 			return $validator->errors();
 		}
 
+		if (isset($new_data['title']) && $new_data['title'] != '') 
+		{
+			$old_data['title'] = $new_data['title'];
+		}
+
+		if (isset($new_data['description']) && $new_data['description'] != '') 
+		{
+			$old_data['description'] = $new_data['description'];
+		}
+		
 		return $this->articleRepository->updateArticle($request->all());
 	}
 
+	public function delete($id)
+	{
+		$this->articleRepository->findArticleBy('id', $id)->delete();
+
+		return $this->payload(['article deleted'], 200);
+
+	}
 }

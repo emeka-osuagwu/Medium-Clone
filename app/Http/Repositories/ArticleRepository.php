@@ -15,6 +15,11 @@ class ArticleRepository
 		return Article::with('tags')->paginate(10);
 	}
 
+	public function findArticleBy($feild, $value)
+	{
+		return Article::with('tags')->where($feild, $value);
+	}
+
 	/**
 	 * [createArticle description]
 	 * @param  [type] $data [description]
@@ -30,8 +35,14 @@ class ArticleRepository
 	 * @param  [type] $data [description]
 	 * @return [type]       [description]
 	 */
-	public function updateArticle(Array $data)
+	public function updateArticle($data)
 	{
-		return $data;
+		$article = Article::find($data['id']);
+
+		unset($data['id']);
+
+
+		$article->update($data);
+		return $article;
 	}
 }
