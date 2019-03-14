@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Validations\ArticleValidator;
 
 use App\Http\Repositories\TagRepository;
+use App\Http\Repositories\MediaRepository;
 use App\Http\Repositories\ArticleRepository;
-
-use App\Http\Resources\ArticleResource;
 
 class ArticleController extends Controller
 {
@@ -31,11 +30,18 @@ class ArticleController extends Controller
 	public $articleValidator;
 
 	/**
+	 * [$mediaRepository description]
+	 * @var [type]
+	 */
+	public $mediaRepository;
+
+	/**
 	 * 
 	 */
 	public function __construct
 	(
 		TagRepository $tagRepository,
+		MediaRepository $mediaRepository,
 		ArticleValidator $articleValidator,
 		ArticleRepository $articleRepository
 	)
@@ -43,6 +49,7 @@ class ArticleController extends Controller
 		$this->tagRepository 		= $tagRepository;
 		$this->articleValidator 	= $articleValidator;
 		$this->articleRepository 	= $articleRepository;
+		$this->mediaRepository 		= $mediaRepository;
 	}
 
 	/**
@@ -65,15 +72,23 @@ class ArticleController extends Controller
 
 	public function create(Request $request)
 	{
+		$request['description'] = $request['description'] . rand(1, 1000);
+		$request['title'] = $request['title'] . rand(1, 1000);
+		$request['post'] = $request['title'] . rand(1, 1000);
+
 		$validator = $this->articleValidator->createArticleValidation($request->all());
 
 		if ($validator->fails()) {
-			return $this->payload($validator->errors(), 400);
+			return $this->sendResponse($validator->errors(), 400);
 		}
+
+		$request['image'] = json_decode($request['image']);
 
 		$article = $this->articleRepository->createArticle($request->all());
 
-		return $this->payload($article, 200);
+		$article->tags()->attach(json_decode($request->tags));
+
+		return $this->sendResponse($article, 200);
 	}
 
 	/**

@@ -13,6 +13,8 @@ class ArticleValidator
 			'post' 			=> 'required|unique:articles|string',
 			'title' 		=> 'required|unique:articles|string',
 			'description' 	=> 'required|unique:articles|string',
+			'image' 		=> 'required|json',
+			'tags' 			=> 'required|json',
 		]);
 
 		return $validator;

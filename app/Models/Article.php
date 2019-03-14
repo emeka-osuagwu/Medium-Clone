@@ -15,7 +15,6 @@ class Article extends Model
 	protected $fillable = [
 	    'post',
 	    'title', 
-	    'author',
 	    'image',
 	    'description',
 	];
@@ -34,6 +33,7 @@ class Article extends Model
 	 * @var array
 	 */
 	protected $casts = [
+		"image" => 'array'
 	];
 
 	public function getCreatedAtAttribute($value)
@@ -44,6 +44,11 @@ class Article extends Model
 	public function tags()
 	{
 	    return $this->belongsToMany('App\Models\Tag');
+	}
+
+	public function medias()
+	{
+	    return $this->belongsToMany('App\Models\Media');
 	}
 
 

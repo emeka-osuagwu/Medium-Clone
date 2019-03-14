@@ -7,6 +7,8 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Article;
 use App\Models\ArticleTag;
+use App\Models\Media;
+use App\Models\ArticleMedia;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,6 @@ $factory->define(Article::class, function (Faker $faker) {
         'post' => $faker->text($maxNbChars = 550),
         'title' => $faker->name,
         'image' => $faker->imageUrl($width = 640, $height = 480),
-        'author' => rand(1, 100),
         'description' => $faker->text($maxNbChars = 150),
     ];
 });
@@ -50,5 +51,18 @@ $factory->define(ArticleTag::class, function (Faker $faker) {
     return [
         'article_id' => rand(1, 100),
         'tag_id' => rand(1, 100),
+    ];
+});
+
+$factory->define(Media::class, function (Faker $faker) {
+    return [
+        'url' => $faker->imageUrl($width = 640, $height = 480),
+    ];
+});
+
+$factory->define(ArticleMedia::class, function (Faker $faker) {
+    return [
+        'article_id' => rand(1, 100),
+        'media_id' => rand(1, 100),
     ];
 });

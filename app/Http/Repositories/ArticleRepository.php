@@ -12,7 +12,7 @@ class ArticleRepository
 	 */
 	public function getAll()
 	{
-		return Article::with('tags')->paginate(10);
+		return Article::with('tags', 'medias')->paginate(10);
 	}
 
 	public function findArticleBy($feild, $value)
