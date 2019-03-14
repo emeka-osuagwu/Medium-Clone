@@ -41,8 +41,8 @@ class ArticleRepository
 
 		unset($data['id']);
 
-
 		$article->update($data);
+		
 		return $article;
 	}
 }

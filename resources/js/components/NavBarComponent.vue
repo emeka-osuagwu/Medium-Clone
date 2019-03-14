@@ -1,19 +1,18 @@
 <template>
     <nav class="navbar navbar-dark bg-dark">
         <router-link class="navbar-brand" :to="'/'">Medium blog</router-link>
-        <v-facebook-login app-id="550783438589524"></v-facebook-login>
+        <button type="button" class="btn btn-primary btn-lg">
+            <a style="color: #fff; text-decoration: none;" href="/facebook">Login</a>
+        </button>
     </nav>
 </template>
 
 <script>
-    
-    import { VFBLoginScope } from 'vue-facebook-login-component'
 
     export default {
         name: 'navbar',
 
         components: {
-            VFBLoginScope
         }
 
     }

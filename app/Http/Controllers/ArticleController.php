@@ -60,7 +60,7 @@ class ArticleController extends Controller
 	    	"articles" 	=> $articles
 	    ];
 
-	    return $this->payload($data, 200);
+	    return $this->sendResponse($data, 200);
 	}
 
 	public function create(Request $request)
@@ -100,15 +100,15 @@ class ArticleController extends Controller
 		{
 			$old_data['description'] = $new_data['description'];
 		}
-		
-		return $this->articleRepository->updateArticle($request->all());
+
+		$this->articleRepository->updateArticle($request->all());
+
+		return $this->payload("Article updated", 200);
 	}
 
 	public function delete($id)
 	{
 		$this->articleRepository->findArticleBy('id', $id)->delete();
-
 		return $this->payload(['article deleted'], 200);
-
 	}
 }
