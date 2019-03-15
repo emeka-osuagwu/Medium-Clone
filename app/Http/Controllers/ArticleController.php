@@ -63,8 +63,8 @@ class ArticleController extends Controller
 		$articles 	= $this->articleRepository->getAll();
 	    
 	    $data = [
-	    	"tags" 		=> $tags,
-	    	"articles" 	=> $articles
+	    	"articles" 	=> $articles,
+	    	"tags" 		=> $tags
 	    ];
 
 	    return $this->sendResponse($data, 200);
@@ -103,22 +103,16 @@ class ArticleController extends Controller
 		$validator = $this->articleValidator->updateArticleValidation($request->all());
 
 		if ($validator->fails()) {
-			return $validator->errors();
+			return $this->sendResponse($validator->errors(), 400);
 		}
 
-		if (isset($new_data['title']) && $new_data['title'] != '') 
-		{
-			$old_data['title'] = $new_data['title'];
-		}
+		$request['image'] = json_decode($request['image']);
 
-		if (isset($new_data['description']) && $new_data['description'] != '') 
-		{
-			$old_data['description'] = $new_data['description'];
-		}
+		$article = $this->articleRepository->updateArticle($request->all());
 
-		$this->articleRepository->updateArticle($request->all());
+		$article->tags()->sync(json_decode($request->tags));
 
-		return $this->payload("Article updated", 200);
+		return $this->sendResponse($article, 200);
 	}
 
 	public function delete($id)

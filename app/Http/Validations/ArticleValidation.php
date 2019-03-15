@@ -27,6 +27,8 @@ class ArticleValidator
 			'post' 			=> 'required_if:section,post|string',
 			'title' 		=> 'required_if:section,title|string',
 			'description' 	=> 'required_if:section,description|string',
+			'image' 		=> 'required_if:section,image|json',
+			'tags' 			=> 'required_if:section,tags|json',
 		]);
 
 		return $validator;
