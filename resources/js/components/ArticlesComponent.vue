@@ -1,6 +1,6 @@
 <template>
 	<div class="col col-10 article-container">
-		<div class="card mb-12" v-for="article in articleStore.articles">
+<!-- 		<div class="card mb-12" v-for="article in articleStore.articles">
 			<div class="row no-gutters">
 				<div class="col-md-4 emeka">
 					<router-link :to="`/article/${article.id}`" class="no-underline text-black">
@@ -17,7 +17,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
+		<app-pagination-component></app-pagination-component>
 	</div>
 </template>
 
@@ -26,12 +27,10 @@
 	import {mapState} from "vuex"
 
 	export default {
-
 	    computed: {
 	        ...mapState({
 	            articleStore: state => state.articleStore
 	        })
 	    }
-
 	}
 </script>

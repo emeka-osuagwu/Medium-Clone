@@ -20,6 +20,11 @@ export default new Router({
 			component: Init
 		},
 		{
+			path: '/page=:id',
+			name: 'article_pagination',
+			component: Init
+		},
+		{
 			path: '/article/:id',
 			name: 'view_article',
 			component: ViewArticleComponent

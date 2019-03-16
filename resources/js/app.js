@@ -22,6 +22,7 @@ window.Vue = require('vue');
 
 Vue.component('app-navbar-component', require('./components/NavBarComponent.vue').default);
 Vue.component('app-articles-component', require('./components/ArticlesComponent.vue').default);
+Vue.component('app-pagination-component', require('./components/PaginationComponent.vue').default);
 Vue.component('app-tags-component', require('./components/TagsComponent.vue').default);
 
 const app = new Vue({
