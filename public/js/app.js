@@ -37072,7 +37072,7 @@ var render = function() {
                     staticClass: "card-img",
                     staticStyle: { height: "100%" },
                     attrs: {
-                      src: article.image[0],
+                      src: article.image[1],
                       alt: "https://cdn.urldecoder.org/assets/images/url_fb.png"
                     }
                   })

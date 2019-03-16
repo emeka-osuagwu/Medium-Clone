@@ -7,8 +7,6 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Article;
 use App\Models\ArticleTag;
-use App\Models\Media;
-use App\Models\ArticleMedia;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,20 +47,8 @@ $factory->define(Tag::class, function (Faker $faker) {
 
 $factory->define(ArticleTag::class, function (Faker $faker) {
     return [
-        'article_id' => rand(1, 100),
-        'tag_id' => rand(1, 100),
+        'article_id' => rand(1, 10),
+        'tag_id' => rand(1, 10),
     ];
 });
 
-$factory->define(Media::class, function (Faker $faker) {
-    return [
-        'url' => $faker->imageUrl($width = 640, $height = 480),
-    ];
-});
-
-$factory->define(ArticleMedia::class, function (Faker $faker) {
-    return [
-        'article_id' => rand(1, 100),
-        'media_id' => rand(1, 100),
-    ];
-});
