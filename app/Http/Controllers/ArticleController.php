@@ -118,6 +118,6 @@ class ArticleController extends Controller
 	public function delete($id)
 	{
 		$this->articleRepository->findArticleBy('id', $id)->delete();
-		return $this->payload(['article deleted'], 200);
+		return $this->sendResponse('article deleted', 200);
 	}
 }

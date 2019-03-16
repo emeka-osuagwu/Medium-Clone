@@ -1958,6 +1958,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "view_article",
@@ -37071,7 +37072,7 @@ var render = function() {
                     staticClass: "card-img",
                     staticStyle: { height: "100%" },
                     attrs: {
-                      src: article.image,
+                      src: article.image[0],
                       alt: "https://cdn.urldecoder.org/assets/images/url_fb.png"
                     }
                   })
@@ -37327,7 +37328,7 @@ var render = function() {
           _c("img", {
             staticClass: "card-img",
             staticStyle: { height: "60%" },
-            attrs: { src: _vm.findSelectArticle.image }
+            attrs: { src: _vm.findSelectArticle.image[0] }
           }),
           _vm._v(" "),
           _c(
@@ -37341,6 +37342,12 @@ var render = function() {
               _c("p", { staticClass: "card-text" }, [
                 _vm._v(_vm._s(_vm.findSelectArticle.description))
               ]),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "card-img",
+                staticStyle: { height: "50%", "margin-bottom": "10px" },
+                attrs: { src: _vm.findSelectArticle.image[1] }
+              }),
               _vm._v(" "),
               _c("p", { staticClass: "card-text" }, [
                 _vm._v(_vm._s(_vm.findSelectArticle.post))

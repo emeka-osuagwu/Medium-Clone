@@ -3,10 +3,11 @@
 	    <div class="container main_body">
 	        <div class="row col-8 offset-md-2">
 	        	<div class="card">
-	        		<img style="height: 60%;" v-bind:src="findSelectArticle.image" class="card-img">
+	        		<img style="height: 60%;" v-bind:src="findSelectArticle.image[0]" class="card-img">
 	        		<div class="card-body view_article">
 	        			<h5 class="card-title">{{ findSelectArticle.title}}</h5>
 	        			<p class="card-text">{{findSelectArticle.description}}</p>
+	        			<img style="height: 50%; margin-bottom: 10px;" v-bind:src="findSelectArticle.image[1]" class="card-img">
 	        			<p class="card-text">{{findSelectArticle.post}}</p>
 	        			<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 	        			<a v-for="tag in findSelectArticle.tags" href="#" class="tag-item badge">

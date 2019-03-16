@@ -4,7 +4,7 @@
 			<div class="row no-gutters">
 				<div class="col-md-4 emeka">
 					<router-link :to="`/article/${article.id}`" class="no-underline text-black">
-					<img style="height: 100%;" v-bind:src="article.image" class="card-img" alt="https://cdn.urldecoder.org/assets/images/url_fb.png">
+					<img style="height: 100%;" v-bind:src="article.image[0]" class="card-img" alt="https://cdn.urldecoder.org/assets/images/url_fb.png">
 					</router-link>
 				</div>
 		

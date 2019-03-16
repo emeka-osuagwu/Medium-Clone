@@ -34,7 +34,7 @@ $factory->define(Article::class, function (Faker $faker) {
     return [
         'post' => $faker->text($maxNbChars = 550),
         'title' => $faker->name,
-        'image' => $faker->imageUrl($width = 640, $height = 480),
+        'image' => [$faker->imageUrl($width = 640, $height = 480), $faker->imageUrl($width = 640, $height = 480)],
         'description' => $faker->text($maxNbChars = 150),
     ];
 });
