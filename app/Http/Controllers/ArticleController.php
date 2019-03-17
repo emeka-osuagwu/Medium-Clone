@@ -57,10 +57,12 @@ class ArticleController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		$tags 		= $this->tagRepository->getAll();
-		$articles 	= $this->articleRepository->getAll();
+		$page = $request->input('page') ?:1;
+		$tags = $this->tagRepository->getAll();
+
+		$articles = $this->articleRepository->getAll();
 	    
 	    $data = [
 	    	"articles" 	=> $articles,

@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Init from './components/Init.vue'
 import ExampleComponent from './components/ExampleComponent.vue'
 import ViewArticleComponent from './components/ViewArticleComponent.vue'
+import AdminComponent from './components/AdminComponent.vue'
 
 Vue.use(Router)
 
@@ -32,7 +33,7 @@ export default new Router({
 		{
 			path: '/admin',
 			name: 'admin',
-			component: ViewArticleComponent
+			component: AdminComponent
 		},
 		{
 			path: '/admin/login',

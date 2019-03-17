@@ -9,6 +9,7 @@
        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
        {{--  Style  --}}
        <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
+       <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
    </head>
    <body>
          <div id="app">

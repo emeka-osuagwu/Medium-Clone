@@ -15,6 +15,12 @@ class ArticleRepository
 		return Article::with('tags', 'medias')->paginate(5);
 	}
 
+	public function selectPaginatedpage($page)
+	{
+		$skip = 5 * $page;
+		return Article::with('tags', 'medias')->paginate(1, 2);
+	}
+
 	public function findArticleBy($feild, $value)
 	{
 		return Article::with('tags')->where($feild, $value);
